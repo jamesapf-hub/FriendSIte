@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co-Cal | Collaborate on Friend Availability</title>
+  <meta name="description" content="Coordinate schedules with friends. Create a private availability board, share the link, and map out mornings and nights.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styling -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Decorative background blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <main class="container">
+    <header class="hero-header">
+      <h1 class="logo-text">Co-<span>Cal</span></h1>
+      <p class="hero-tagline">Coordinate schedules with friends seamlessly. Create a board, share the link, and map out mornings and nights together.</p>
+    </header>
+
+    <!-- Create Board Card -->
+    <section class="card glass" id="create-card">
+      <h2 class="card-title">Create a New Board</h2>
+      
+      <form id="create-board-form" class="main-form">
+        <div class="form-group">
+          <label for="board-name">Event or Board Name</label>
+          <input type="text" id="board-name" placeholder="e.g. Summer Cabin Trip" required autocomplete="off">
+        </div>
+
+        <div class="form-group password-group">
+          <label for="board-password">
+            Optional Board Password
+            <span class="tooltip-trigger" title="If set, friends will need this password to view the calendar and add availability.">ℹ️</span>
+          </label>
+          <div class="password-input-wrapper">
+            <input type="password" id="board-password" placeholder="Leave empty for public access" autocomplete="new-password">
+            <button type="button" id="toggle-password-btn" class="toggle-password-btn" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          <span class="btn-text">Generate Availability Board</span>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
+    </section>
+
+    <!-- Success / Share Card (Initially Hidden) -->
+    <section class="card glass hidden" id="success-card">
+      <div class="success-icon-wrapper">
+        <div class="success-icon">🎉</div>
+      </div>
+      <h2 class="card-title text-center">Board Created!</h2>
+      <p class="success-desc text-center">Your private availability board is ready. Share this link with your friends so they can add their schedules.</p>
+      
+      <div class="share-box">
+        <input type="text" id="share-url" readonly>
+        <button id="copy-btn" class="btn btn-secondary">
+          <span id="copy-btn-text">Copy Link</span>
+        </button>
+      </div>
+
+      <div class="card-actions">
+        <a href="#" id="view-board-btn" class="btn btn-primary text-center">Go to Board</a>
+        <button id="create-another-btn" class="btn btn-text-only">Create Another Board</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <p>&copy; 2026 Co-Cal. Private, fast, and simple schedule coordination.</p>
+  </footer>
+
+  <!-- Frontend Logic -->
+  <script src="/app.js"></script>
+</body>
+</html>
