@@ -1,4 +1,4 @@
-name = "friend"
+name = "friendsite"
 main = "src/index.js"
 compatibility_date = "2026-07-13"
 
