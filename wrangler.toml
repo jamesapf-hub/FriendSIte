@@ -9,3 +9,6 @@ binding = "ASSETS"
 [[kv_namespaces]]
 binding = "COCAL_KV"
 id = "d573872c9bde4529a943050de4d78d65"
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]

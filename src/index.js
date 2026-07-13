@@ -24,6 +24,8 @@ function jsonResponse(data, status = 200) {
 }
 
 // Export default worker handler
+import boardHtml from '../public/board_app.html';
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -41,7 +43,15 @@ export default {
       });
     }
 
-    // 1. Board routing is now handled natively by Cloudflare Assets _redirects
+    // 1. Route /board/:id to serve the static board_app.html without redirects
+    if (path.startsWith('/board/')) {
+      return new Response(boardHtml, {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/html;charset=UTF-8'
+        }
+      });
+    }
 
     // 2. Handle API endpoints
     if (path.startsWith('/api/')) {
