@@ -41,13 +41,7 @@ export default {
       });
     }
 
-    // 1. Route /board/:id to serve the static board_app.html
-    if (path.startsWith('/board/')) {
-      if (!env.ASSETS) {
-        return new Response("Wrangler Assets binding not found.", { status: 500 });
-      }
-      return env.ASSETS.fetch(new URL('/board_app.html', request.url));
-    }
+    // 1. Board routing is now handled natively by Cloudflare Assets _redirects
 
     // 2. Handle API endpoints
     if (path.startsWith('/api/')) {
