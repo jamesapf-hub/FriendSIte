@@ -3,7 +3,8 @@ main = "src/index.js"
 compatibility_date = "2026-07-13"
 
 [assets]
-directory = "./public"
+directory = "public"
+binding = "ASSETS"
 
 [[kv_namespaces]]
 binding = "COCAL_KV"
