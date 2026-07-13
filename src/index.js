@@ -41,13 +41,12 @@ export default {
       });
     }
 
-    // 1. Route /board/:id to serve the static board.html
+    // 1. Route /board/:id to serve the static board_app.html
     if (path.startsWith('/board/')) {
       if (!env.ASSETS) {
         return new Response("Wrangler Assets binding not found.", { status: 500 });
       }
-      const assetUrl = new URL('/board', request.url);
-      return env.ASSETS.fetch(assetUrl);
+      return env.ASSETS.fetch(new URL('/board_app.html', request.url));
     }
 
     // 2. Handle API endpoints
